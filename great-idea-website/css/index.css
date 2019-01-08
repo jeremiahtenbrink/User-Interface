@@ -30,6 +30,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
+    position: relative;
 }
 ol, ul {
 	list-style: none;
@@ -54,7 +55,7 @@ table {
 
 html, body {
 	height: 100%;
-	font-family: 'Titillium Web', sans-serif;
+    font-family: 'ZCOOL QingKe HuangYou', cursive sans-serif;
 }
 
 h1, h2, h3, h4, h5 {
@@ -65,6 +66,11 @@ h1, h2, h3, h4, h5 {
 
 /* Your code starts here! */
 
+a {
+	text-decoration: none;
+	color: black;
+}
+
 .clearfix::after {
 	content: "";
 	clear: both;
@@ -72,40 +78,62 @@ h1, h2, h3, h4, h5 {
 }
 
 .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    background-image: linear-gradient(to bottom right, #f2f2f2, #e4e4e4);
 	display: block;
 	margin: 0 auto;
-	display: block;
 	height: 5rem;
-	max-width: 80rem;
 	text-align: center;
+    z-index: 5;
+}
+
+.header__content {
+    max-width: 80rem;
+    height: 5rem;
 }
 
 .header__nav{
 	display: block;
 	height: 100%;
 	float: left;
-	width: 60%;
+	width: 70%;
 }
 
-.header__li{
+.header__li {
 	float: right;
 	padding: 2rem;
 }
 
+.header__li.selected {
+	background: aliceblue;
+	box-shadow: inset 0 0 6px #ada3a3;
+	border-radius: 6px;
+}
+
 .header__logo {
 	display: block;
-	width: 40%;
+	width: 30%;
 	text-align: center;
 	height: 100%;
 	float: right;
 	position: relative;
 }
 
+
 .logo{
+	background-size: cover;
+	width: 220px;
+	height: 36px;
+	background-image: url("../img/logo.png");
+	padding: 1.3rem;
 	position: absolute;
 	top: 50%;
 	left: 0%;
 	transform: translate(20%, -50%);
+	transition: rotate .4s ease-out;
 }
 
 .title {
@@ -115,6 +143,7 @@ h1, h2, h3, h4, h5 {
 	height: 30rem;
 	margin: 0 auto;
 	position: relative;
+    padding-top: 7rem;
 
 }
 
@@ -126,18 +155,31 @@ h1, h2, h3, h4, h5 {
 
 }
 
-.title__img {
+.title__img-box {
+	margin: 0 auto;
 	display: block;
 	float: right;
-	width: 49%;
+	max-width: 379px;
+	max-height: 379px;
+	width: 100%;
 	height: 100%;
+	position: relative;
 
 }
 
-.title__img img{
+.title__img-img {
+	background-image: url(../img/header-img.png);
+	background-size: cover;
+	max-width: 366px;
+	max-height: 379px;
+	width: 100%;
 	height: 100%;
 	margin-left: auto;
 	margin-right: auto;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-75%, -50%);
 }
 
 .title__h1 {
@@ -151,6 +193,7 @@ h1, h2, h3, h4, h5 {
 }
 
 .title__heading-button {
+    margin-top: 2rem;
 	float: left;
 	position: absolute;
 	top: 80%;
@@ -199,6 +242,9 @@ h1, h2, h3, h4, h5 {
 }
 
 .middle__img {
+	background-image: url("../img/mid-page-accent.jpg");
+	width: 100%;
+	height: 9rem;
 	display: block;
 	margin: 0 auto;
 }
@@ -258,4 +304,106 @@ footer {
 	text-align: center;
 	margin: 0 auto;
 	display: block;
+}
+
+.hero {
+	margin: 0 0% 0 0%;
+	margin-top: 5rem;
+	width: 100vw;
+	height: 85vh;
+}
+
+.hero__img{
+	width: 100%;
+	height: 100%;
+	background-image: url("../img/daniel-chen-546446-unsplash.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: 0 -700px;
+	z-index: 3;
+}
+
+.hero__text {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	font-size: 4rem;
+	background-image: radial-gradient(white 30%, transparent 100%);
+	transition: all 1s ease-out;
+}
+
+.hero__text:hover {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	padding: 3rem;
+	transform: translate(-50%, -50%) scale(1.3);
+	font-size: 4rem;
+	border-radius: 100px;
+	background-image: radial-gradient(white 30%, transparent 100%);
+}
+
+.hero__hidden-text {
+	position: absolute;
+	top: 70%;
+	left: 50%;
+	padding: 3rem;
+	transform: translate(-50%, 0%);
+	font-size: 2rem;
+	border-radius: 100px;
+	opacity: 0;
+	transition: all 1s ease-in-out;
+}
+
+.hero__text:hover ~ .hero__hidden-text {
+	opacity: 100;
+	transform: translate(-50%, -85%);
+	background-image: radial-gradient(white 10%, transparent 100%);
+}
+
+.content {
+	padding: 2rem;
+	max-width: 70rem;
+	margin: 0 auto;
+	align-items: center;
+	background-color: #f2f2f2;
+	display: block;
+}
+
+.content__col {
+	padding: 0 2rem;
+	display: inline-block;
+	width: 33%;
+}
+
+.content__col > h2 {
+	font-size: 1.4rem;
+}
+
+.footer__col > nav {
+	width: max-content;
+	margin: 0 auto;
+}
+
+.footer__col > nav > ul > li{
+	padding-top: 2rem;
+	display: inline-block;
+	font-size: 1.2rem;
+	transform: rotate(-22deg) translateY(2rem);
+	transform-origin: left;
+	transition: all .3s ease-in;
+}
+
+.footer__col > nav > ul > li:hover{
+	transform: rotate(0) translate(0);
+	transform-origin: left;
+}
+
+.footer__col > nav > ul > li > a{
+	text-decoration: underline;
+}
+
+.footer__col > nav > ul > li:not(:last-child){
+	padding-right: 4rem;
 }
